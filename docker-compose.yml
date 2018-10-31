@@ -1,0 +1,48 @@
+version: '2'
+
+services:
+  db:
+    image: postgres
+    ports:
+      - '4000:5432'
+
+  web:
+    container_name: fisst
+    image: platform
+    command: python manage.py runserver 0.0.0.0:8000 --settings=celery_boiler_plate.settings_dev
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    links:
+      - db
+      - redis
+    depends_on:
+      - db
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ../data/redis:/data
+    entrypoint: redis-server --appendonly yes
+    restart: always
+
+  celery:
+    build: .
+    command: celery -A celery_boiler_plate worker -l info
+    volumes:
+      - .:/code
+    depends_on:
+      - db
+      - redis
+
+  celery-beat:
+    build: .
+    command: celery -A celery_boiler_plate beat -l info
+    volumes:
+      - .:/code
+    depends_on:
+      - db
+      - redis
