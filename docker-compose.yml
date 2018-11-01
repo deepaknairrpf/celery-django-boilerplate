@@ -8,7 +8,7 @@ services:
 
   web:
     container_name: fisst
-    image: platform
+    image: deepaknair/platform
     command: python manage.py runserver 0.0.0.0:8000 --settings=celery_boiler_plate.settings_dev
     volumes:
       - .:/code
