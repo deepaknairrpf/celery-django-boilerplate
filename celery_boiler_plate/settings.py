@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps'
+    'documents'
 ]
 
 MIDDLEWARE = [
@@ -133,7 +133,7 @@ CELERY_RESULT_SERIALIZER = 'json'
 
 CELERY_BEAT_SCHEDULE = {
     'hello': {
-        'task': 'apps.tasks.hello',
+        'task': 'documents.tasks.hello',
         'schedule': crontab()  # execute every minute
     }
 }
