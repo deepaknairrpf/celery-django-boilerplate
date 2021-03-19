@@ -31,7 +31,7 @@ django-s3-storage==0.12.4
 django-storages==1.6.6
 django-treebeard==4.3
 django-url-filter==0.3.5
-djangorestframework==3.7.7
+djangorestframework==3.11.2
 djangorestframework-simplejwt==3.2.3
 docutils==0.14
 dry-rest-permissions==0.1.10
