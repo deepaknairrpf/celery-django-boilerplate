@@ -14,7 +14,7 @@ bs4==0.0.1
 CacheControl==0.12.5
 cached-property==1.4.0
 cachetools==2.1.0
-celery==4.2.1
+celery==5.2.2
 certifi==2018.1.18
 chardet==3.0.4
 coreapi==2.3.3
